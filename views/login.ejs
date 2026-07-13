@@ -1,0 +1,28 @@
+<%- include ('partials/header'); -%>
+
+    <main class="mt-20 mb-20 md:mt-40 md:mb-25">
+
+        <div class="mx-4">
+            <form class="max-w-sm mx-auto p-6 rounded-base shadow-md bg-orange-50">
+                <h5 class="text-xl font-semibold text-heading text-orange-700/65 mb-6">Connectez-vous</h5>
+                <div class="mb-4">
+                    <label for="email" class="block mb-2.5 text-sm font-medium text-heading">Votre email</label>
+                    <input type="email" id="email" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="exemple@entreprise.com" required />
+                </div>
+                <div>
+                    <label for="password" class="block mb-2.5 text-sm font-medium text-heading">Votre mot de passe</label>
+                    <input type="password" id="password" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="•••••••••" required />
+                </div>
+                <div class="flex items-start my-6">
+                    <div class="flex items-center">
+                        <a href="/forgot" class="ms-auto text-sm font-medium text-orange-700/65 hover:underline">Mot de passe oublié?</a>
+                    </div>
+                </div>
+                <button type="submit" class="text-white text-sm bg-orange-700/65 shadow-xs font-medium rounded-base hover:bg-amber-700 px-4 py-2.5 w-full mb-6">Envoyer</button>
+                <div class="text-sm font-medium text-body">Pas de compte? <a href="/register" class="text-orange-700/65 hover:underline">S'enregistrer</a></div>
+            </form>
+        </div>
+
+    </main>
+
+<%- include ('partials/footer'); -%>

@@ -9,7 +9,7 @@ router.get('/login', (req, res) => res.render('login'));
 router.get('/register', (req, res) => res.render('register'));
 router.get('/forgot', (req, res) => res.render('forgot'));
 router.get('/reset', (req, res) => res.render('reset'));
-router.get('/users', (req, res) => res.render('users'));
+router.get('/user', (req, res) => res.render('user'));
 router.get('/logout', userAuth.Logout);
 
 
