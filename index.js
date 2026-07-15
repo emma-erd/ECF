@@ -1,6 +1,8 @@
 const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const client = require('./model/db');
 const usersRoutes = require('./routes/userRoutes');
 const app = express();
@@ -8,8 +10,14 @@ const app = express();
 
 // Middleware.
 
-app.use(bodyParser.json({type: 'application/*+json'}));
+app.use(cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use(cookieParser());
 
 
 // View engine.
