@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
+const client = require('../model/db');
 
 
 // Generate random key.
@@ -18,32 +19,6 @@ function generateToken(user) {
 }
 
 
-const protected = async (req, res, next) => {
-    try {
-        const token = req.cookies.jwt;
-
-        if (!token) {
-            return res.status(401).json({ message: 'Not authorized, no token !' });
-        } 
-
-        const decoded = jwt.verify(token, secretKey);
-        const user = await client.query('SELECT id, firstname, email FROM users WHERE id = $1', [decoded.id]);
-
-        if (user.rows.length === 0) {
-            return res.status(401).json({ message: 'Not authorized, user not found !' });
-        };
-
-        req.user = user.rows[0];
-        next();
-
-    } catch (error) {
-        console.error(error);
-        res.status(401).json({ message: 'Not auhtorized, token failed !' });
-    }
-}
-
-
 module.exports = {
-    generateToken,
-    protected,
+    generateToken
 }

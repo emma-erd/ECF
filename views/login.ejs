@@ -8,10 +8,12 @@
                 <div class="mb-4">
                     <label for="email" class="block mb-2.5 text-sm font-medium text-heading">Votre email</label>
                     <input type="email" id="email" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="exemple@entreprise.com" required />
+                    <p id="emailError" class="hidden mt-2.5 text-sm text-red-600"><span class="font-medium">Error!</span> Some error message.</p>
                 </div>
                 <div>
                     <label for="password" class="block mb-2.5 text-sm font-medium text-heading">Votre mot de passe</label>
                     <input type="password" id="password" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="•••••••••" required />
+                    <p id="passwordError" class="hidden mt-2.5 text-sm text-red-600"><span class="font-medium">Error!</span> Some error message.</p>
                 </div>
                 <div class="flex items-start my-6">
                     <div class="flex items-center">
@@ -24,5 +26,7 @@
         </div>
 
     </main>
+
+    <script src="/login.js"></script>
 
 <%- include ('partials/footer'); -%>

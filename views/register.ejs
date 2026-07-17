@@ -9,37 +9,45 @@
                     <div class="mb-4">
                         <label for="firstName" class="block mb-2.5 text-sm font-medium text-heading">Prénom</label>
                         <input type="text" id="firstName" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="Pauline" required />
+                        <p id="firstNameError" class="hidden mt-2.5 text-sm text-red-600"><span class="font-medium">Error!</span> Some error message.</p>
                     </div>
                     <div class="mb-4">
                         <label for="lastName" class="block mb-2.5 text-sm font-medium text-heading">Nom de famille</label>
                         <input type="text" id="lastName" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="Dupont" required />
+                        <p id="lastNameError" class="hidden mt-2.5 text-sm text-red-600"><span class="font-medium">Error!</span> Some error message.</p>
                     </div>
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block mb-2.5 text-sm font-medium text-heading">Votre email</label>
                     <input type="email" id="email" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="exemple@entreprise.com" required />
+                    <p id="emailError" class="hidden mt-2.5 text-sm text-red-600"><span class="font-medium">Error!</span> Some error message.</p>
                 </div>
                 <div class="mb-4">
                     <label for="password" class="block mb-2.5 text-sm font-medium text-heading">Votre mot de passe</label>
                     <input type="password" id="password" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="•••••••••" required />
+                    <p id="passwordError" class="hidden mt-2.5 text-sm text-red-600"><span class="font-medium">Error!</span> Some error message.</p>
                 </div>
                 <div class="grid md:grid-cols-2 md:gap-6">
                     <div class="mb-4">
                         <label for="phone" class="block mb-2.5 text-sm font-medium text-heading">Téléphone</label>
                         <input type="tel" pattern="0[1-9](?: [0-9]{2}){4}" id="phone" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="01 23 45 67 89" required />
+                        <p id="phoneError" class="hidden mt-2.5 text-sm text-red-600"><span class="font-medium">Error!</span> Some error message.</p>
                     </div>
                     <div class="mb-4">
-                        <label for="postalCode" class="block mb-2.5 text-sm font-medium text-heading">Code postal</label>
-                        <input type="number" max="5" id="postalCode" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="33000" required />
+                        <label for="postCode" class="block mb-2.5 text-sm font-medium text-heading">Code postal</label>
+                        <input type="number" maxlength="5" id="postCode" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="33000" required />
+                        <p id="postCodeError" class="hidden mt-2.5 text-sm text-red-600"><span class="font-medium">Error!</span> Some error message.</p>
                     </div>
                 </div>
                 <div class="mb-4">
-                    <label for="street" class="block mb-2.5 text-sm font-medium text-heading">Votre adresse</label>
-                    <input type="text" id="street" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="1 rue principale" required />
+                    <label for="address" class="block mb-2.5 text-sm font-medium text-heading">Votre adresse</label>
+                    <input type="text" id="address" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="1 rue principale" required />
+                    <p id="addressError" class="hidden mt-2.5 text-sm text-red-600"><span class="font-medium">Error!</span> Some error message.</p>
                 </div>
                 <div class="mb-6">
                     <label for="city" class="block mb-2.5 text-sm font-medium text-heading">Ville / Commune</label>
                     <input type="text" id="city" class="border text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs" placeholder="Bordeaux" required />
+                    <p id="cityError" class="hidden mt-2.5 text-sm text-red-600"><span class="font-medium">Error!</span> Some error message.</p>
                 </div>
                 <button type="submit" class="text-white text-sm bg-orange-700/65 shadow-xs font-medium rounded-base hover:bg-amber-700 px-4 py-2.5 w-full mb-6">Envoyer</button>
                 <div class="text-sm font-medium text-body">Déjà un compte? <a href="/login" class="text-orange-700/65 hover:underline">Se connecter</a></div>
@@ -47,5 +55,7 @@
         </div>
 
     </main>
+
+    <script src="/register.js"></script>
 
 <%- include ('partials/footer'); -%>
