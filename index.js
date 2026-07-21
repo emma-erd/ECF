@@ -3,6 +3,7 @@ const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const helmet = require('helmet');
 const client = require('./model/db');
 const usersRoutes = require('./routes/userRoutes');
 const app = express();
@@ -14,9 +15,9 @@ app.use(cors({
     origin: process.env.CLIENT_URL,
     credentials: true,
 }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(helmet());
 app.use(express.static('public'));
+app.use(bodyParser.json());
 app.use(cookieParser());
 
 
@@ -35,5 +36,4 @@ app.listen(8000, () => {
 // Routes.
 
 app.get('/home', (req, res) => res.render('home'));
-
 app.use(usersRoutes);
