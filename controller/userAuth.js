@@ -42,7 +42,7 @@ const Login = async (req, res) => {
             const token = generateToken(userData.id);
             res.cookie('jwt', token, cookieOptions);
 
-        return res.status(200).json({ user: { id: userData.id, firstName: userData.firstName, email: userData.email } });
+        return res.status(200).json({ user: { id: userData.id, email: userData.email, role: userData.role } });
 
     } catch (error) {
         res.status(400).json({ error });
@@ -70,8 +70,8 @@ const Register = async (req, res) => {
             const hashedPasword = await bcrypt.hash(password, 10);
 
             const newUser = await client.query(
-                'INSERT INTO users (firstName, lastName, email, password, phone, address, city, postCode) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id, firstName, email', 
-                [firstName, lastName, email, hashedPasword, phone, address, city, postCode]
+                'INSERT INTO users (firstName, lastName, email, password, phone, address, city, postCode, role) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id, firstName, email', 
+                [firstName, lastName, email, hashedPasword, phone, address, city, postCode, "3"]
             );
 
         // Create token and cookie.

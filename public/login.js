@@ -18,16 +18,22 @@ const form = document.querySelector('form');
                headers: { 'Content-Type': 'application/json'}
            });
            const data = await res.json();
-           console.log(data);
+           console.log(data.user.role);
 
                if (data.errors) {
                    emailError.textContent = data.errors.email;
                    passwordError.textContent = data.errors.password;
                }
 
-               if (data.user) {
-                   location.assign('/user');
+               if (data.user.role == '1') {
+                   location.assign('admin/orders');
                }
+               else if (data.user.role == '2') {
+                    location.assign('/employee');
+               }
+               else if (data.user.role == '3') {
+                location.assign('/user');
+           }
 
        } catch (err) {
            console.log(err);
