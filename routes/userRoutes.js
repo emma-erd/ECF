@@ -31,15 +31,16 @@ const router = Router();
     // GET.
 
     router.get('/admin/orders', (req, res) => res.render('admin/orders'));
-    router.get('/admin/employees', (req, res) => res.render('admin/employees'));
-    router.get('/admin/addEmploye', (req, res) => res.render('admin/addEmployee'));
+    router.get('/admin/employees', adminAuth.findEmployees);
+    router.get('/admin/addEmployee', (req, res) => res.render('admin/addEmployee'));
     router.get('/admin/products', (req, res) => res.render('admin/products'));
     router.get('/admin/comments', (req, res) => res.render('admin/comments'));
     router.get('/admin/stats', (req, res) => res.render('admin/stats'));
 
     // POST
 
-    // router.post('/admin/add-employes', adminAuth.employeeRegister);
+    router.post('/admin/addEmployee', adminAuth.employeeRegister);
+    router.post('/admin/employees/:id', adminAuth.deleteEmployees);
 
 
 module.exports = router;
