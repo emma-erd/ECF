@@ -19,6 +19,73 @@ client.connect((err) => {
     }
 });
 
+/*
+// DATABASE SCHEMA.
+
+CREATE TABLE IF NOT EXISTS roles (
+	roleId SERIAL PRIMARY KEY NOT NULL,
+	roleName VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS users (
+	id SERIAL PRIMARY KEY NOT NULL,
+	firstName VARCHAR(50),
+	lastName VARCHAR(50),
+	email VARCHAR(100) UNIQUE NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	phone VARCHAR(20),
+	address VARCHAR(100), 
+	city VARCHAR(100),
+	postCode VARCHAR(5),
+	role int,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	FOREIGN KEY (role)
+    REFERENCES roles(roleId)
+);
+
+CREATE TABLE IF NOT EXISTS reset_tokens (
+	token varchar(255) PRIMARY KEY not null,
+	created_at varchar(255) not null, 
+	expires_at varchar(255) not null,
+	user_id int not null,
+	FOREIGN KEY (user_id)
+    REFERENCES users(id)
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+	id SERIAL PRIMARY KEY NOT NULL,
+	user_id INT,
+	order_date DATE,
+	delivery_date DATE,
+	delivery_time VARCHAR(50),
+	menu_price VARCHAR(20),
+	number_pers VARCHAR(20),
+	delivery_price VARCHAR(20),
+	status VARCHAR(50),
+	equipment_loan BOOL,
+	equipment_return BOOL,
+	FOREIGN KEY (user_id)
+    REFERENCES users(id)
+);
+
+CREATE TABLE IF NOT EXISTS dishes (
+	id SERIAL PRIMARY KEY NOT NULL,
+	dish_title VARCHAR(50)
+);
+
+CREATE TABLE IF NOT EXISTS menus (
+	id SERIAL PRIMARY KEY NOT NULL,
+	title VARCHAR(50),
+	dish_id INT,
+	number_min_pers INT,
+	price_per_pers INT,
+	regime VARCHAR(50),
+	description VARCHAR(250),
+	quantity INT,
+	FOREIGN KEY (dish_id)
+    REFERENCES dishes(id)
+);
+*/
 
 let db = {};
 
